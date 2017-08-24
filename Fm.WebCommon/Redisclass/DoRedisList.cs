@@ -212,6 +212,7 @@ namespace Fm.WebCommon.WebRedis
             return RedisBase.Core.RemoveStartFromList(key);
         }
         #endregion
+
         #region 其它
         /// <summary>
         /// 从一个list的尾部移除一个数据，添加到另外一个list的头部，并返回移动的值

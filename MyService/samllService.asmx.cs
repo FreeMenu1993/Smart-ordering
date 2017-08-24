@@ -70,7 +70,7 @@ namespace MyService
 
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string MenuList()
+        public string MenuList(int pageSize, int pageNo)
         {
             //string Msg = "";
             //if (!myHeaderUserAuthDy.IsValid(out Msg))
@@ -78,7 +78,7 @@ namespace MyService
             //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
             //}
             LzHandle myhandle = new LzHandle();
-            string strJson = myhandle.ViewMenu();
+            string strJson = myhandle.ViewMenu(1,pageSize,pageNo);
             return strJson;
         }
 

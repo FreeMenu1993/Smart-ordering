@@ -252,5 +252,14 @@ namespace Fm.BLL{
         }
         #endregion
 
-	}
+        #region add
+        public void Add(Entity.order_detail model)
+        {
+            DBHelper myHelperMySQL = new DBHelper();
+            myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
+            DAL.order_detail method = new DAL.order_detail();
+            method.Add(myHelperMySQL, model);
+        }
+        #endregion
+    }
 }

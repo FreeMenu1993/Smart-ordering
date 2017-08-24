@@ -252,5 +252,78 @@ namespace Fm.BLL{
         }
         #endregion
 
-	}
+        #region add
+        public void Add(Entity.order_record model)
+        {
+            DBHelper myHelperMySQL = new DBHelper();
+            myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
+            DAL.order_record method = new DAL.order_record();
+            method.Add(myHelperMySQL,model);
+        }
+        #endregion
+
+        #region UpdateState 方法，更新订单状态
+        /// <summary>
+        /// 更新order_record指定字段(独立连接)
+        /// </summary>
+        /// <param name="OrderID">条件</param>
+        /// <param name="int">值1</param>
+        /// <returns>生效记录数</returns>
+        public int UpdateState(string OrderID, int State)
+        {
+            int iNum = 0;
+            DBHelper myHelperMySQL = new DBHelper();
+            myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
+            try
+            {
+                iNum = this.UpdateState(myHelperMySQL, OrderID, State);
+            }
+            catch (Exception errorStr)
+            {
+                #region 出错打印日志
+                //打印日志-----------------------------------------------------------------
+
+                string MailContent = "服务器出现错误!" + ((char)13).ToString() + ((char)10).ToString() +
+                    "地址：" + HttpContext.Current.Request.ServerVariables.Get("LOCAL_ADDR").ToString() + ((char)13).ToString() +
+                    ((char)10).ToString() +
+                    "时间：" + DateTime.Now.ToString("yyyy-MM-dd") + ((char)13).ToString() + ((char)10).ToString() +
+                    "内容：" + errorStr.ToString() + ((char)13).ToString() + ((char)10).ToString() + " ";
+
+                //-------------------------------------------------------------------------------
+                #endregion
+            }
+            return iNum;
+        }
+        /// <summary>
+        /// 更新order_record指定字段，(方法外传入连接对象，需要人工关闭连接)
+        /// </summary>
+        /// <param name="myDbHelperC">自定义数据连接对象实例</param>
+        /// <param name="OrderID">条件</param>
+        /// <param name="int">值1</param>
+        /// <returns>生效记录数</returns>
+        public int UpdateState(DBHelper myHelperMySQL, string OrderID, int State)
+        {
+            int iNum = 0;
+            List<Fm.Entity.order_record> myList = new List<Fm.Entity.order_record>();
+
+            //条件
+            string strWhere = "OrderID=@OrderID";
+
+            //字段
+            string fieldUpdate = "State=@State ";
+            //参数
+
+            MySqlParameter[] parms =
+            {
+                new MySqlParameter("OrderID",OrderID),
+                new MySqlParameter("State",State)
+            };
+
+            iNum = dal.Update(myHelperMySQL, strWhere, fieldUpdate, parms);
+            return iNum;
+
+
+        }
+        #endregion
+    }
 }

@@ -252,5 +252,64 @@ namespace Fm.BLL{
         }
         #endregion
 
-	}
+        #region GetTypeCode 方法，根据取出TypeCode
+        /// <summary>
+        /// 获得food_type数据列表(独立连接)
+        /// <param name="Xxx"></param>
+        /// </summary>
+        public List<Fm.Entity.food_type> GetTypeCode(int state)
+        {
+            List<Fm.Entity.food_type> myList = new List<Fm.Entity.food_type>();
+            DBHelper myHelperMySQL = new DBHelper();
+            myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
+            try
+            {
+                myList = this.GetTypeCode(myHelperMySQL, state);
+            }
+            catch (Exception errorStr)
+            {
+                #region 出错打印日志
+                //打印日志-----------------------------------------------------------------
+
+                string MailContent = "服务器出现错误!" + ((char)13).ToString() + ((char)10).ToString() +
+                    "地址：" + HttpContext.Current.Request.ServerVariables.Get("LOCAL_ADDR").ToString() + ((char)13).ToString() +
+                    ((char)10).ToString() +
+                    "时间：" + DateTime.Now.ToString("yyyy-MM-dd") + ((char)13).ToString() + ((char)10).ToString() +
+                    "内容：" + errorStr.ToString() + ((char)13).ToString() + ((char)10).ToString() + " ";
+
+                //-------------------------------------------------------------------------------
+                #endregion
+            }
+            return myList;
+        }
+        /// <summary>
+        /// 获得food_type数据列表，(方法外传入连接对象，需要人工关闭连接)
+        /// <param name="myHelperMySQL">自定义数据连接对象实例</param>
+        /// <param name="Xxx"></param>
+        /// </summary>
+        public List<Fm.Entity.food_type> GetTypeCode(DBHelper myHelperMySQL, int state)
+        {
+            List<Fm.Entity.food_type> myList = new List<Fm.Entity.food_type>();
+
+            //字段
+            string fieldSelect = "";
+            fieldSelect = "a.TypeCode";
+
+            //条件
+            string strWhere = "state=@state";
+            //排序
+            string fieldOrder = "createdate desc";
+            //参数
+            MySqlParameter[] parms =
+            {
+                new MySqlParameter("state", state)
+            };
+
+            myList = dal.GetList(myHelperMySQL, 0, fieldSelect, strWhere, fieldOrder, parms);
+
+            return myList;
+        }
+        #endregion
+
+    }
 }

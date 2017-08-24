@@ -311,7 +311,7 @@ namespace Fm.BLL{
         }
         #endregion
 
-        #region GetListByState 方法，根据 id 取出 菜品详情
+        #region GetDetailByid 方法，根据 id 取出 菜品详情
         /// <summary>
         /// 获得food_menu数据列表(独立连接)
         /// <param name="State"></param>
@@ -355,13 +355,72 @@ namespace Fm.BLL{
             fieldSelect = "a.Food_Code, a.Food_Code,a.Price, a.Image_Src,a.Food_Summary, a.Is_Series,a.SeriesCode, a.Is_Feature";
 
             //条件
-            string strWhere = "State=@State";
+            string strWhere = "id=@id";
             //排序
             string fieldOrder = "Createtime desc";
             //参数
             MySqlParameter[] parms =
             {
                 new MySqlParameter("id", id)
+            };
+
+            myList = dal.GetList(myHelperMySQL, 0, fieldSelect, strWhere, fieldOrder, parms);
+
+            return myList;
+        }
+        #endregion
+
+        #region GetDetailBySeries 方法，根据 Is_Series 取出 菜品详情
+        /// <summary>
+        /// 获得food_menu数据列表(独立连接)
+        /// <param name="State"></param>
+        /// </summary>
+        public List<Fm.Entity.food_menu> GetDetailBySeries(string Series)
+        {
+            List<Fm.Entity.food_menu> myList = new List<Fm.Entity.food_menu>();
+            DBHelper myHelperMySQL = new DBHelper();
+            myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
+            try
+            {
+                myList = this.GetDetailBySeries(myHelperMySQL, Series);
+            }
+            catch (Exception errorStr)
+            {
+                #region 出错打印日志
+                //打印日志-----------------------------------------------------------------
+
+                string MailContent = "服务器出现错误!" + ((char)13).ToString() + ((char)10).ToString() +
+                    "地址：" + HttpContext.Current.Request.ServerVariables.Get("LOCAL_ADDR").ToString() + ((char)13).ToString() +
+                    ((char)10).ToString() +
+                    "时间：" + DateTime.Now.ToString("yyyy-MM-dd") + ((char)13).ToString() + ((char)10).ToString() +
+                    "内容：" + errorStr.ToString() + ((char)13).ToString() + ((char)10).ToString() + " ";
+
+                //-------------------------------------------------------------------------------
+                #endregion
+            }
+            return myList;
+        }
+        /// <summary>
+        /// 获得food_menu数据列表，(方法外传入连接对象，需要人工关闭连接)
+        /// <param name="DBHelper">自定义数据连接对象实例</param>
+        /// <param name="State"></param>
+        /// </summary>
+        public List<Fm.Entity.food_menu> GetDetailBySeries(DBHelper myHelperMySQL, string Series)
+        {
+            List<Fm.Entity.food_menu> myList = new List<Fm.Entity.food_menu>();
+
+            //字段
+            string fieldSelect = "";
+            fieldSelect = "a.Food_Code, a.Food_Code,a.Price, a.Image_Src,a.Food_Summary, a.Is_Series,a.SeriesCode, a.Is_Feature";
+
+            //条件
+            string strWhere = "Series=@Series";
+            //排序
+            string fieldOrder = "Createtime desc";
+            //参数
+            MySqlParameter[] parms =
+            {
+                new MySqlParameter("Series", Series)
             };
 
             myList = dal.GetList(myHelperMySQL, 0, fieldSelect, strWhere, fieldOrder, parms);

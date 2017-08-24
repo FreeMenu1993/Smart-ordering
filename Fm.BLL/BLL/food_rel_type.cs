@@ -252,5 +252,64 @@ namespace Fm.BLL{
         }
         #endregion
 
-	}
+        #region GetFoodIDByTypeCode
+        /// <summary>
+        /// 获得food_rel_type数据列表(独立连接)
+        /// <param name="Xxx"></param>
+        /// </summary>
+        public List<Fm.Entity.food_rel_type> GetFoodIDByTypeCode(string FoodType_Code)
+        {
+            List<Fm.Entity.food_rel_type> myList = new List<Fm.Entity.food_rel_type>();
+            DBHelper myHelperMySQL = new DBHelper();
+            myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
+            try
+            {
+                myList = this.GetFoodIDByTypeCode(myHelperMySQL, FoodType_Code);
+            }
+            catch (Exception errorStr)
+            {
+                #region 出错打印日志
+                //打印日志-----------------------------------------------------------------
+
+                string MailContent = "服务器出现错误!" + ((char)13).ToString() + ((char)10).ToString() +
+                    "地址：" + HttpContext.Current.Request.ServerVariables.Get("LOCAL_ADDR").ToString() + ((char)13).ToString() +
+                    ((char)10).ToString() +
+                    "时间：" + DateTime.Now.ToString("yyyy-MM-dd") + ((char)13).ToString() + ((char)10).ToString() +
+                    "内容：" + errorStr.ToString() + ((char)13).ToString() + ((char)10).ToString() + " ";
+
+                //-------------------------------------------------------------------------------
+                #endregion
+            }
+            return myList;
+        }
+        /// <summary>
+        /// 获得food_rel_type数据列表，(方法外传入连接对象，需要人工关闭连接)
+        /// <param name="myHelperMySQL">自定义数据连接对象实例</param>
+        /// <param name="Xxx"></param>
+        /// </summary>
+        public List<Fm.Entity.food_rel_type> GetFoodIDByTypeCode(DBHelper myHelperMySQL, string FoodType_Code)
+        {
+            List<Fm.Entity.food_rel_type> myList = new List<Fm.Entity.food_rel_type>();
+
+            //字段
+            string fieldSelect = "";
+            fieldSelect = "a.foodid ";
+
+            //条件
+            string strWhere = "FoodType_Code=@FoodType_Code and state=1";
+            //排序
+            string fieldOrder = "sort asc";
+            //参数
+            MySqlParameter[] parms =
+            {
+                new MySqlParameter("FoodType_Code", FoodType_Code)
+            };
+
+            myList = dal.GetList(myHelperMySQL, 0, fieldSelect, strWhere, fieldOrder, parms);
+
+            return myList;
+        }
+        #endregion
+
+    }
 }
