@@ -1,0 +1,17 @@
+C:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.dll
+C:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.pdb
+C:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.dll
+C:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.pdb
+H:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.dll
+H:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.pdb
+H:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.dll
+H:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.pdb
+C:\a\FreeMenu\Fm.Core\bin\Debug\Fm.Core.dll
+C:\a\FreeMenu\Fm.Core\bin\Debug\Fm.Core.pdb
+C:\a\FreeMenu\Fm.Core\obj\Debug\Fm.Core.dll
+C:\a\FreeMenu\Fm.Core\obj\Debug\Fm.Core.pdb
+D:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.dll
+D:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.pdb
+D:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.csprojResolveAssemblyReference.cache
+D:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.dll
+D:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.pdb
