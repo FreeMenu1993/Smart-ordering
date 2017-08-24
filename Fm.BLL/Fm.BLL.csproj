@@ -59,6 +59,7 @@
     <Compile Include="BLL\tableinfo.cs" />
     <Compile Include="BLL\tableuse_record.cs" />
     <Compile Include="BLL\userinfo.cs" />
+    <Compile Include="LzHandle.cs" />
     <Compile Include="Myfunc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

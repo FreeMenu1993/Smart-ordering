@@ -66,7 +66,6 @@ namespace Fm.BusinessRules
             try
             {
                 //判断用户名密码
-
                 if ((iUserId == Fm.BLL.Base.SoapConfig.APIUserId && iPassWord == Fm.BLL.Base.SoapConfig.APISecret))
                 {
                     return true;
@@ -75,9 +74,6 @@ namespace Fm.BusinessRules
                 {
                     return false;
                 }
-
-                return true;
-
             }
             catch
             {

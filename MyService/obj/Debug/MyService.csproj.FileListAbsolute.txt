@@ -207,7 +207,6 @@ D:\FreeMenu\MyService\bin\Fm.WebCommon.dll
 D:\FreeMenu\MyService\bin\MySql.Data.dll
 D:\FreeMenu\MyService\bin\ServiceStack.Interfaces.dll
 D:\FreeMenu\MyService\bin\ServiceStack.Redis.dll
-D:\FreeMenu\MyService\bin\Fm.Core.dll
 D:\FreeMenu\MyService\bin\ServiceStack.Text.dll
 D:\FreeMenu\MyService\bin\ServiceStack.Common.dll
 D:\FreeMenu\MyService\bin\Fm.BLL.pdb
@@ -221,7 +220,6 @@ D:\FreeMenu\MyService\bin\Fm.WebCommon.pdb
 D:\FreeMenu\MyService\bin\Fm.WebCommon.dll.config
 D:\FreeMenu\MyService\bin\ServiceStack.Interfaces.xml
 D:\FreeMenu\MyService\bin\ServiceStack.Redis.xml
-D:\FreeMenu\MyService\bin\Fm.Core.pdb
 D:\FreeMenu\MyService\bin\ServiceStack.Text.xml
 D:\FreeMenu\MyService\bin\ServiceStack.Common.xml
 D:\FreeMenu\MyService\obj\Debug\MyService.csprojResolveAssemblyReference.cache

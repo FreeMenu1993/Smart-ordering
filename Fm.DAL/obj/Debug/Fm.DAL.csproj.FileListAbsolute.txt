@@ -71,7 +71,6 @@ D:\FreeMenu\Fm.DAL\bin\Debug\Fm.WebCommon.dll
 D:\FreeMenu\Fm.DAL\bin\Debug\MySql.Data.dll
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Interfaces.dll
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Redis.dll
-D:\FreeMenu\Fm.DAL\bin\Debug\Fm.Core.dll
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Text.dll
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Common.dll
 D:\FreeMenu\Fm.DAL\bin\Debug\Fm.Entity.pdb
@@ -79,7 +78,6 @@ D:\FreeMenu\Fm.DAL\bin\Debug\Fm.WebCommon.pdb
 D:\FreeMenu\Fm.DAL\bin\Debug\Fm.WebCommon.dll.config
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Interfaces.xml
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Redis.xml
-D:\FreeMenu\Fm.DAL\bin\Debug\Fm.Core.pdb
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Text.xml
 D:\FreeMenu\Fm.DAL\bin\Debug\ServiceStack.Common.xml
 D:\FreeMenu\Fm.DAL\obj\Debug\Fm.DAL.csprojResolveAssemblyReference.cache

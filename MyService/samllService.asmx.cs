@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
+using Fm.BLL;
 
 namespace MyService
 {
@@ -67,6 +68,20 @@ namespace MyService
 
         #endregion
 
+        [WebMethod]
+        [SoapHeader("myHeaderUserAuthDy")]
+        public string MenuList()
+        {
+            //string Msg = "";
+            //if (!myHeaderUserAuthDy.IsValid(out Msg))
+            //{
+            //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
+            //}
+            LzHandle myhandle = new LzHandle();
+            myhandle.ViewMenu();
+            string strJson = "Hello World";
+            return strJson;
+        }
 
     }
 }
