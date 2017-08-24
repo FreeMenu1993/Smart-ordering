@@ -78,8 +78,7 @@ namespace MyService
             //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
             //}
             LzHandle myhandle = new LzHandle();
-            myhandle.ViewMenu();
-            string strJson = "Hello World";
+            string strJson = myhandle.ViewMenu();
             return strJson;
         }
 
