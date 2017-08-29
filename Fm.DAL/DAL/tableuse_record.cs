@@ -2,7 +2,6 @@
 *│版权所有：Dream1993
 *│创建人：Lee        
 */  
-using System;
 using System.Text;
 using System.Data;
 using System.Linq;
@@ -189,15 +188,9 @@ namespace Fm.DAL{
 					{
 						model.TableCode=int.Parse(dr["TableCode"].ToString());
 					}
-																																								if(dr["Starttime"].ToString()!="")
-					{
-						model.Starttime=DateTime.Parse(dr["Starttime"].ToString());
-					}
-																																								if(dr["Stoptime"].ToString()!="")
-					{
-						model.Stoptime=DateTime.Parse(dr["Stoptime"].ToString());
-					}
-																														
+																																													model.Starttime= dr["Starttime"].ToString();
+																																								model.Stoptime= dr["Stoptime"].ToString();
+																									
                     myList.Add(model);
                 }
                 dr.Close();
@@ -255,18 +248,12 @@ namespace Fm.DAL{
 																														} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.starttime").Count() > 0)
 	                {
-										if(dr["Starttime"].ToString()!="")
-					{
-						model.Starttime=DateTime.Parse(dr["Starttime"].ToString());
-					}
-																														} 
+															model.Starttime= dr["Starttime"].ToString();
+																									} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.stoptime").Count() > 0)
 	                {
-										if(dr["Stoptime"].ToString()!="")
-					{
-						model.Stoptime=DateTime.Parse(dr["Stoptime"].ToString());
-					}
-																														} 
+															model.Stoptime= dr["Stoptime"].ToString();
+																									} 
 					
                     myList.Add(model);
                 }

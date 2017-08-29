@@ -2,7 +2,6 @@
 *│版权所有：Dream1993
 *│创建人：Lee        
 */  
-using System;
 using System.Text;
 using System.Data;
 using System.Linq;
@@ -193,15 +192,9 @@ namespace Fm.DAL{
 					{
 						model.State=int.Parse(dr["State"].ToString());
 					}
-																																								if(dr["Createtime"].ToString()!="")
-					{
-						model.Createtime=DateTime.Parse(dr["Createtime"].ToString());
-					}
-																																								if(dr["Updatetime"].ToString()!="")
-					{
-						model.Updatetime=DateTime.Parse(dr["Updatetime"].ToString());
-					}
-																														
+																																													model.Createtime= dr["Createtime"].ToString();
+																																								model.Updatetime= dr["Updatetime"].ToString();
+																									
                     myList.Add(model);
                 }
                 dr.Close();
@@ -263,18 +256,12 @@ namespace Fm.DAL{
 																														} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createtime").Count() > 0)
 	                {
-										if(dr["Createtime"].ToString()!="")
-					{
-						model.Createtime=DateTime.Parse(dr["Createtime"].ToString());
-					}
-																														} 
+															model.Createtime= dr["Createtime"].ToString();
+																									} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.updatetime").Count() > 0)
 	                {
-										if(dr["Updatetime"].ToString()!="")
-					{
-						model.Updatetime=DateTime.Parse(dr["Updatetime"].ToString());
-					}
-																														} 
+															model.Updatetime= dr["Updatetime"].ToString();
+																									} 
 					
                     myList.Add(model);
                 }

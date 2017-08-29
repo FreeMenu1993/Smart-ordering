@@ -42,27 +42,27 @@ namespace Fm.Entity{
         }        
 				private int _state;
 		/// <summary>
-		/// 状态值
+		/// 状态值(0不生效，1生效)
         /// </summary>
         public int State
         {
             get{ return _state; }
             set{ _state = value; }
         }        
-				private DateTime _createtime;
+				private string _createtime;
 		/// <summary>
 		/// 添加时间
         /// </summary>
-        public DateTime Createtime
+        public string Createtime
         {
             get{ return _createtime; }
             set{ _createtime = value; }
         }        
-				private DateTime _updatetime;
+				private string _updatetime;
 		/// <summary>
 		/// 最后一次修改时间
         /// </summary>
-        public DateTime Updatetime
+        public string Updatetime
         {
             get{ return _updatetime; }
             set{ _updatetime = value; }

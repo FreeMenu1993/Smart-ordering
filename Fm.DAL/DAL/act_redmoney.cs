@@ -2,7 +2,6 @@
 *│版权所有：Dream1993
 *│创建人：Lee        
 */  
-using System;
 using System.Text;
 using System.Data;
 using System.Linq;
@@ -220,27 +219,15 @@ namespace Fm.DAL{
 					{
 						model.Amount=int.Parse(dr["Amount"].ToString());
 					}
-																																								if(dr["Start_Date"].ToString()!="")
-					{
-						model.Start_Date=DateTime.Parse(dr["Start_Date"].ToString());
-					}
-																																								if(dr["End_Date"].ToString()!="")
-					{
-						model.End_Date=DateTime.Parse(dr["End_Date"].ToString());
-					}
-																																								if(dr["State"].ToString()!="")
+																																													model.Start_Date= dr["Start_Date"].ToString();
+																																								model.End_Date= dr["End_Date"].ToString();
+																																			if(dr["State"].ToString()!="")
 					{
 						model.State=int.Parse(dr["State"].ToString());
 					}
-																																								if(dr["Createtime"].ToString()!="")
-					{
-						model.Createtime=DateTime.Parse(dr["Createtime"].ToString());
-					}
-																																								if(dr["Updatetime"].ToString()!="")
-					{
-						model.Updatetime=DateTime.Parse(dr["Updatetime"].ToString());
-					}
-																														
+																																													model.Createtime= dr["Createtime"].ToString();
+																																								model.Updatetime= dr["Updatetime"].ToString();
+																									
                     myList.Add(model);
                 }
                 dr.Close();
@@ -320,18 +307,12 @@ namespace Fm.DAL{
 																														} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.start_date").Count() > 0)
 	                {
-										if(dr["Start_Date"].ToString()!="")
-					{
-						model.Start_Date=DateTime.Parse(dr["Start_Date"].ToString());
-					}
-																														} 
+															model.Start_Date= dr["Start_Date"].ToString();
+																									} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.end_date").Count() > 0)
 	                {
-										if(dr["End_Date"].ToString()!="")
-					{
-						model.End_Date=DateTime.Parse(dr["End_Date"].ToString());
-					}
-																														} 
+															model.End_Date= dr["End_Date"].ToString();
+																									} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.state").Count() > 0)
 	                {
 										if(dr["State"].ToString()!="")
@@ -341,18 +322,12 @@ namespace Fm.DAL{
 																														} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createtime").Count() > 0)
 	                {
-										if(dr["Createtime"].ToString()!="")
-					{
-						model.Createtime=DateTime.Parse(dr["Createtime"].ToString());
-					}
-																														} 
+															model.Createtime= dr["Createtime"].ToString();
+																									} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.updatetime").Count() > 0)
 	                {
-										if(dr["Updatetime"].ToString()!="")
-					{
-						model.Updatetime=DateTime.Parse(dr["Updatetime"].ToString());
-					}
-																														} 
+															model.Updatetime= dr["Updatetime"].ToString();
+																									} 
 					
                     myList.Add(model);
                 }

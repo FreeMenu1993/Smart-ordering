@@ -9,7 +9,37 @@ namespace Fm.BLL
 {
     public class LzHandle
     {
-        #region 获取菜单
+        #region 展示菜品类型
+        public string ShowFoodType(int state)
+        {
+            string strJson = "";
+            Entity.DataResponse_food_type Response = new Entity.DataResponse_food_type();
+            Entity.DataList_food_type model = new Entity.DataList_food_type();
+            food_type Bfood_type = new food_type();
+            try
+            {
+                List<Entity.food_type> mylist = Bfood_type.GetListAll(state);
+                foreach (var m in mylist)
+                {
+                    model.FoodType_Code = m.FoodType_Code;
+                    model.FoodType_Name = m.FoodType_Name;
+                    model.Sort = m.Sort;
+                    Response.Rlist.Add(model);
+                }
+                Response.Result = true;
+                Response.Msg = "";
+            }
+            catch
+            {
+                Response.Result = false;
+                Response.Msg = "数据异常！";
+            }
+            strJson = Newtonsoft.Json.JsonConvert.SerializeObject(Response);
+            return strJson;
+        }
+        #endregion
+
+        #region 根据菜品类型，获取菜单
         public string ViewMenu(string typecode,int pageSize,int pageNo)
         {
             string strJson = "";
@@ -43,7 +73,7 @@ namespace Fm.BLL
         }
         #endregion
 
-        #region 根据商品id获取商品详情
+        #region 根据菜品id获取商品详情
         public string FoodDetail(string FoodID)
         {
             string strJson = "";
@@ -78,28 +108,6 @@ namespace Fm.BLL
         }
         #endregion
 
-        #region Redis
-        //public string setRedis()
-        //{
-        //    string strJson = "";
-        //    food_menu Bfood_menu = new food_menu();
-        //    food_rel_type Bfood_rel_type = new food_rel_type();
-        //    food_type Bfood_type = new food_type();
-        //    List<Entity.food_type> list = Bfood_type.GetTypeCode(1);
-        //    foreach (var m1 in list)
-        //    {
-        //        List<Entity.food_rel_type> foodlist = Bfood_rel_type.GetFoodIDByTypeCode(m1.FoodType_Code);
-        //        List<Entity.food_menu> menulist = Bfood_menu.GetDetailByid(foodlist[0].FoodID);
-
-        //        WebCommon.WebRedis.DoRedisList redis_set_list = new WebCommon.WebRedis.DoRedisList();
-
-        //        //redis_set_list.Add(m1.FoodType_Code, menulist);
-
-        //    }
-        //    return strJson;
-        //}
-        #endregion
-
         #region 创建预订单
         public string CreateOrder(string json)
         {
@@ -118,8 +126,8 @@ namespace Fm.BLL
                 Morder_record.Discount = jsonMode.Discount;
                 Morder_record.Mymoney = jsonMode.Mymoney;
                 Morder_record.State = 0;
-                Morder_record.Createtime = DateTime.Now;
-                Morder_record.Updatetime = DateTime.Now;
+                Morder_record.Createtime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                Morder_record.Updatetime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 Border_record.Add(Morder_record);
 
                 foreach (var m1 in jsonMode.Dlist)
@@ -160,5 +168,32 @@ namespace Fm.BLL
             return strJson;
         }
         #endregion
+
+
+
+
+        #region Redis
+        //public string setRedis()
+        //{
+        //    string strJson = "";
+        //    food_menu Bfood_menu = new food_menu();
+        //    food_rel_type Bfood_rel_type = new food_rel_type();
+        //    food_type Bfood_type = new food_type();
+        //    List<Entity.food_type> list = Bfood_type.GetTypeCode(1);
+        //    foreach (var m1 in list)
+        //    {
+        //        List<Entity.food_rel_type> foodlist = Bfood_rel_type.GetFoodIDByTypeCode(m1.FoodType_Code);
+        //        List<Entity.food_menu> menulist = Bfood_menu.GetDetailByid(foodlist[0].FoodID);
+
+        //        WebCommon.WebRedis.DoRedisList redis_set_list = new WebCommon.WebRedis.DoRedisList();
+
+        //        //redis_set_list.Add(m1.FoodType_Code, menulist);
+
+        //    }
+        //    return strJson;
+        //}
+        #endregion
+
+
     }
 }

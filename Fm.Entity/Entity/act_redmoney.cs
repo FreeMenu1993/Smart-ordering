@@ -67,20 +67,20 @@ namespace Fm.Entity{
             get{ return _amount; }
             set{ _amount = value; }
         }        
-				private DateTime _start_date;
+				private string _start_date;
 		/// <summary>
 		/// 开始时间
         /// </summary>
-        public DateTime Start_Date
+        public string Start_Date
         {
             get{ return _start_date; }
             set{ _start_date = value; }
         }        
-				private DateTime _end_date;
+				private string _end_date;
 		/// <summary>
 		/// 结束时间
         /// </summary>
-        public DateTime End_Date
+        public string End_Date
         {
             get{ return _end_date; }
             set{ _end_date = value; }
@@ -94,20 +94,20 @@ namespace Fm.Entity{
             get{ return _state; }
             set{ _state = value; }
         }        
-				private DateTime _createtime;
+				private string _createtime;
 		/// <summary>
 		/// 创建时间
         /// </summary>
-        public DateTime Createtime
+        public string Createtime
         {
             get{ return _createtime; }
             set{ _createtime = value; }
         }        
-				private DateTime _updatetime;
+				private string _updatetime;
 		/// <summary>
 		/// 更改时间
         /// </summary>
-        public DateTime Updatetime
+        public string Updatetime
         {
             get{ return _updatetime; }
             set{ _updatetime = value; }

@@ -2,7 +2,6 @@
 *│版权所有：Dream1993
 *│创建人：Lee        
 */  
-using System;
 using System.Text;
 using System.Data;
 using System.Linq;
@@ -10,8 +9,7 @@ using Fm.WebCommon;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
-namespace Fm.DAL
-{
+namespace Fm.DAL {
     /// <summary>
     /// act_filled数据访问层类
     /// </summary>
@@ -221,11 +219,11 @@ namespace Fm.DAL
                     model.Use_Derate = dr["Use_Derate"].ToString();
                     if (dr["Start_Date"].ToString() != "")
                     {
-                        model.Start_Date = DateTime.Parse(dr["Start_Date"].ToString());
+                        model.Start_Date = dr["Start_Date"].ToString();
                     }
                     if (dr["End_Date"].ToString() != "")
                     {
-                        model.End_Date = DateTime.Parse(dr["End_Date"].ToString());
+                        model.End_Date = dr["End_Date"].ToString();
                     }
                     if (dr["Amount"].ToString() != "")
                     {
@@ -235,14 +233,8 @@ namespace Fm.DAL
                     {
                         model.State = int.Parse(dr["State"].ToString());
                     }
-                    if (dr["Createtime"].ToString() != "")
-                    {
-                        model.Createtime = DateTime.Parse(dr["Createtime"].ToString());
-                    }
-                    if (dr["Updatetime"].ToString() != "")
-                    {
-                        model.Updatetime = DateTime.Parse(dr["Updatetime"].ToString());
-                    }
+                    model.Createtime = dr["Createtime"].ToString();
+                    model.Updatetime = dr["Updatetime"].ToString();
 
                     myList.Add(model);
                 }
@@ -297,7 +289,7 @@ namespace Fm.DAL
                     {
                         model.Ticket_Type = dr["Ticket_Type"].ToString();
 
-                    }
+                                                                                                    }
                     if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.title").Count() > 0)
                     {
                         model.Title = dr["Title"].ToString();
@@ -322,14 +314,14 @@ namespace Fm.DAL
                     {
                         if (dr["Start_Date"].ToString() != "")
                         {
-                            model.Start_Date = DateTime.Parse(dr["Start_Date"].ToString());
+                            model.Start_Date = dr["Start_Date"].ToString();
                         }
                     }
                     if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.end_date").Count() > 0)
                     {
                         if (dr["End_Date"].ToString() != "")
                         {
-                            model.End_Date = DateTime.Parse(dr["End_Date"].ToString());
+                            model.End_Date = dr["End_Date"].ToString();
                         }
                     }
                     if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.amount").Count() > 0)
@@ -348,17 +340,11 @@ namespace Fm.DAL
                     }
                     if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createtime").Count() > 0)
                     {
-                        if (dr["Createtime"].ToString() != "")
-                        {
-                            model.Createtime = DateTime.Parse(dr["Createtime"].ToString());
-                        }
+                        model.Createtime = dr["Createtime"].ToString();
                     }
                     if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.updatetime").Count() > 0)
                     {
-                        if (dr["Updatetime"].ToString() != "")
-                        {
-                            model.Updatetime = DateTime.Parse(dr["Updatetime"].ToString());
-                        }
+                        model.Updatetime = dr["Updatetime"].ToString();
                     }
 
                     myList.Add(model);

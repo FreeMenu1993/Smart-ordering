@@ -316,14 +316,14 @@ namespace Fm.BLL{
         /// 获得food_menu数据列表(独立连接)
         /// <param name="State"></param>
         /// </summary>
-        public List<Fm.Entity.food_menu> GetDetailByid(string id)
+        public List<Fm.Entity.food_menu> GetDetailByid(string FoodID)
         {
             List<Fm.Entity.food_menu> myList = new List<Fm.Entity.food_menu>();
             DBHelper myHelperMySQL = new DBHelper();
             myHelperMySQL.connectionStr = MySQLConfig.ConnStringCenter;
             try
             {
-                myList = this.GetDetailByid(myHelperMySQL, id);
+                myList = this.GetDetailByid(myHelperMySQL, FoodID);
             }
             catch (Exception errorStr)
             {
@@ -346,22 +346,22 @@ namespace Fm.BLL{
         /// <param name="DBHelper">自定义数据连接对象实例</param>
         /// <param name="State"></param>
         /// </summary>
-        public List<Fm.Entity.food_menu> GetDetailByid(DBHelper myHelperMySQL, string id)
+        public List<Fm.Entity.food_menu> GetDetailByid(DBHelper myHelperMySQL, string FoodID)
         {
             List<Fm.Entity.food_menu> myList = new List<Fm.Entity.food_menu>();
 
             //字段
             string fieldSelect = "";
-            fieldSelect = "a.Food_Code, a.Food_Code,a.Price, a.Image_Src,a.Food_Summary, a.Is_Series,a.SeriesCode, a.Is_Feature";
+            fieldSelect = "a.FoodID,a.food_name,a.Price, a.Image_Src,a.Food_Summary, a.Is_Series,a.SeriesCode, a.Is_Feature";
 
             //条件
-            string strWhere = "id=@id";
+            string strWhere = "FoodID=@FoodID";
             //排序
             string fieldOrder = "Createtime desc";
             //参数
             MySqlParameter[] parms =
             {
-                new MySqlParameter("id", id)
+                new MySqlParameter("FoodID", FoodID)
             };
 
             myList = dal.GetList(myHelperMySQL, 0, fieldSelect, strWhere, fieldOrder, parms);

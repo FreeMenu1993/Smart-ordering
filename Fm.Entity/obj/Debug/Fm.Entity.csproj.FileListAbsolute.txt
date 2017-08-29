@@ -15,3 +15,7 @@ D:\FreeMenu\Fm.Entity\bin\Debug\Fm.Entity.pdb
 D:\FreeMenu\Fm.Entity\obj\Debug\Fm.Entity.csprojResolveAssemblyReference.cache
 D:\FreeMenu\Fm.Entity\obj\Debug\Fm.Entity.dll
 D:\FreeMenu\Fm.Entity\obj\Debug\Fm.Entity.pdb
+H:\Smart-ordering\Fm.Entity\bin\Debug\Fm.Entity.dll
+H:\Smart-ordering\Fm.Entity\bin\Debug\Fm.Entity.pdb
+H:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.dll
+H:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.pdb

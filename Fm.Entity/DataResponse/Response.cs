@@ -13,11 +13,13 @@ namespace Fm.Entity
     }
     #endregion
 
+    #region 菜单详情
     [Serializable]
     public class DataResponse_FoodDetail : BaseDataResponse
     {
         public List<Entity.food_menu> Rlist { get; set; }
     }
+    #endregion
 
     #region 订单
     [Serializable]
@@ -91,24 +93,63 @@ namespace Fm.Entity
             get { return _state; }
             set { _state = value; }
         }
-        private DateTime _createtime;
+        private string _createtime;
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime Createtime
+        public string Createtime
         {
             get { return _createtime; }
             set { _createtime = value; }
         }
-        private DateTime _updatetime;
+        private string _updatetime;
         /// <summary>
         /// 更新时间
         /// </summary>
-        public DateTime Updatetime
+        public string Updatetime
         {
             get { return _updatetime; }
             set { _updatetime = value; }
         }
+    }
+    #endregion
+
+    #region 菜单类型
+    [Serializable]
+    public class DataList_food_type
+    {
+        private string _foodtype_code;
+        /// <summary>
+        /// 种类编码
+        /// </summary>
+        public string FoodType_Code
+        {
+            get { return _foodtype_code; }
+            set { _foodtype_code = value; }
+        }
+        private string _foodtype_name;
+        /// <summary>
+        /// 种类名称
+        /// </summary>
+        public string FoodType_Name
+        {
+            get { return _foodtype_name; }
+            set { _foodtype_name = value; }
+        }
+        private int _sort;
+        /// <summary>
+        /// 序号（按次序显示）
+        /// </summary>
+        public int Sort
+        {
+            get { return _sort; }
+            set { _sort = value; }
+        }
+    }
+    [Serializable]
+    public class DataResponse_food_type : BaseDataResponse
+    {
+       public List<DataList_food_type> Rlist { get; set; }
     }
     #endregion
 }

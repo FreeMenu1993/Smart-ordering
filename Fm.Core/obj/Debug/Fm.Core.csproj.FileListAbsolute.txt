@@ -15,3 +15,7 @@ D:\FreeMenu\Fm.Core\bin\Debug\Fm.Core.pdb
 D:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.csprojResolveAssemblyReference.cache
 D:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.dll
 D:\FreeMenu\Fm.Core\obj\Debug\Fm.Core.pdb
+H:\Smart-ordering\Fm.Core\bin\Debug\Fm.Core.dll
+H:\Smart-ordering\Fm.Core\bin\Debug\Fm.Core.pdb
+H:\Smart-ordering\Fm.Core\obj\Debug\Fm.Core.dll
+H:\Smart-ordering\Fm.Core\obj\Debug\Fm.Core.pdb

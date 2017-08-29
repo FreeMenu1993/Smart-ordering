@@ -31,20 +31,20 @@ namespace Fm.Entity{
             get{ return _tablecode; }
             set{ _tablecode = value; }
         }        
-				private DateTime _starttime;
+				private string _starttime;
 		/// <summary>
 		/// 开始时间
         /// </summary>
-        public DateTime Starttime
+        public string Starttime
         {
             get{ return _starttime; }
             set{ _starttime = value; }
         }        
-				private DateTime _stoptime;
+				private string _stoptime;
 		/// <summary>
 		/// 结束时间
         /// </summary>
-        public DateTime Stoptime
+        public string Stoptime
         {
             get{ return _stoptime; }
             set{ _stoptime = value; }

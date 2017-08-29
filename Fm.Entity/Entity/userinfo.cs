@@ -103,20 +103,20 @@ namespace Fm.Entity{
             get{ return _state; }
             set{ _state = value; }
         }        
-				private DateTime _createtime;
+				private string _createtime;
 		/// <summary>
 		/// 创建时间
         /// </summary>
-        public DateTime Createtime
+        public string Createtime
         {
             get{ return _createtime; }
             set{ _createtime = value; }
         }        
-				private DateTime _refreshtime;
+				private string _refreshtime;
 		/// <summary>
 		/// 更新时间
         /// </summary>
-        public DateTime Refreshtime
+        public string Refreshtime
         {
             get{ return _refreshtime; }
             set{ _refreshtime = value; }
