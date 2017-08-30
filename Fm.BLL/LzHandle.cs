@@ -10,27 +10,31 @@ namespace Fm.BLL
     public class LzHandle
     {
         #region 展示菜品类型
-        public string ShowFoodType(int state)
+        public string ShowFoodType()
         {
             string strJson = "";
             Entity.DataResponse_food_type Response = new Entity.DataResponse_food_type();
-            Entity.DataList_food_type model = new Entity.DataList_food_type();
+            List<Entity.DataList_food_type> RElist = new List<Entity.DataList_food_type>();
             food_type Bfood_type = new food_type();
             try
             {
+                int state = 1;
                 List<Entity.food_type> mylist = Bfood_type.GetListAll(state);
                 foreach (var m in mylist)
                 {
+                    Entity.DataList_food_type model = new Entity.DataList_food_type();
                     model.FoodType_Code = m.FoodType_Code;
                     model.FoodType_Name = m.FoodType_Name;
                     model.Sort = m.Sort;
-                    Response.Rlist.Add(model);
+                    RElist.Add(model);
                 }
+                Response.Rlist = RElist;
                 Response.Result = true;
                 Response.Msg = "";
             }
-            catch
+            catch(Exception ex)
             {
+                string r= ex.ToString();
                 Response.Result = false;
                 Response.Msg = "数据异常！";
             }
@@ -40,26 +44,46 @@ namespace Fm.BLL
         #endregion
 
         #region 根据菜品类型，获取菜单
-        public string ViewMenu(string typecode,int pageSize,int pageNo)
+        public string ViewMenu()
         {
             string strJson = "";
             #region 响应类
             Entity.DataResponse_MenuList Response = new Entity.DataResponse_MenuList();
+            
             #endregion
+
             food_menu Bfood_menu = new food_menu();
             food_rel_type Bfood_rel_type = new food_rel_type();
             try
             {
-                List<Entity.food_rel_type> Typelist = Bfood_rel_type.GetFoodIDByTypeCode(typecode);
-                List<Entity.food_menu> Foodlist = new List<Entity.food_menu>();
-                foreach (var m1 in Typelist)
+                List<Entity.food_menu> Foodlist = Bfood_menu.GetListByState(1);
+                
+                List<Entity.DataList_food_menu> Relist = new List<Entity.DataList_food_menu>();
+                foreach (var m in Foodlist)
                 {
-                    Foodlist = Bfood_menu.GetDetailByid(m1.FoodID);
+                    Entity.DataList_food_menu model = new Entity.DataList_food_menu();
+
+                    List<Entity.DataList_Typecode> Typecodelist = new List<Entity.DataList_Typecode>();
+                    List<Entity.food_rel_type> Typelist = new List<Entity.food_rel_type>();
+                    Typelist = Bfood_rel_type.GetTypeByFoodID(m.FoodID);
+                    foreach (var m2 in Typelist)
+                    {
+                        Entity.DataList_Typecode model2 = new Entity.DataList_Typecode();
+                        model2.FoodType_Code = m2.FoodType_Code;
+                        Typecodelist.Add(model2);
+                    }
+                    model.Tlist = Typecodelist;
+                    model.FoodID = m.FoodID;
+                    model.Food_Name = m.FoodID;
+                    model.Food_Summary = m.Food_Summary;
+                    model.Image_Src = m.Image_Src;
+                    model.Is_Feature = m.Is_Feature;
+                    model.Is_Series = m.Is_Series;
+                    model.SeriesCode = m.SeriesCode;
+                    model.Price = m.Price;
+                    Relist.Add(model);
                 }
-                PagingUtil<Entity.food_menu> mypage = new PagingUtil<Entity.food_menu>(Foodlist, pageSize, pageNo);
-                Response.mylist = mypage;
-                Response.pageCount = mypage.PageCount;
-                Response.recordCount = Foodlist.Count;
+                Response.mylist = Relist;
                 Response.Msg = "";
                 Response.Result = true;
             }
@@ -148,13 +172,14 @@ namespace Fm.BLL
         #endregion
 
         #region 支付完成，生成结账单，修改订单状态
-        public string updateorder(string OrderID, int State)
+        public string updateorder(string OrderID)
         {
             string strJson = "";
             Entity.BaseDataResponse Response = new Entity.BaseDataResponse();
             order_record Border_record = new order_record();
             try
             {
+                int State = 1;
                 Border_record.UpdateState(OrderID, State);
                 Response.Msg = "";
                 Response.Result = true;

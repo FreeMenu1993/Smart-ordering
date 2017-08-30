@@ -293,7 +293,7 @@ namespace Fm.BLL{
 
             //字段
             string fieldSelect = "";
-            fieldSelect = "a.Food_Code, a.Food_Code,a.Price, a.Image_Src,a.Food_Summary, a.Is_Series,a.SeriesCode, a.Is_Feature";
+            fieldSelect = "a.FoodID, a.Food_Name,a.Price, a.Image_Src,a.Food_Summary, a.Is_Series,a.SeriesCode, a.Is_Feature";
 
             //条件
             string strWhere = "State=@State";

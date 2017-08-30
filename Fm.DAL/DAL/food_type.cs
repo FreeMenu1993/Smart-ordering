@@ -9,70 +9,71 @@ using Fm.WebCommon;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
-namespace Fm.DAL{
-	/// <summary>
+namespace Fm.DAL
+{
+    /// <summary>
     /// food_type数据访问层类
     /// </summary>
-	public partial class food_type
-	{ 
-		/// <summary>
-		/// 增加一条数据
-		/// </summary>
-		public void Add(DBHelper myHelperMySQL ,Fm.Entity.food_type model)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into food_type(");			
+    public partial class food_type
+    {
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public void Add(DBHelper myHelperMySQL, Fm.Entity.food_type model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into food_type(");
             strSql.Append("FoodType_Code,FoodType_Name,Sort,State,Createtime,Updatetime");
-			strSql.Append(") values (");
-            strSql.Append("@FoodType_Code,@FoodType_Name,@Sort,@State,@Createtime,@Updatetime");            
-            strSql.Append(") ");            
-            	
-			MySqlParameter[] parameters = {
-			            new MySqlParameter("@FoodType_Code", model.FoodType_Code)  ,
+            strSql.Append(") values (");
+            strSql.Append("@FoodType_Code,@FoodType_Name,@Sort,@State,@Createtime,@Updatetime");
+            strSql.Append(") ");
+
+            MySqlParameter[] parameters = {
+                        new MySqlParameter("@FoodType_Code", model.FoodType_Code)  ,
                                     new MySqlParameter("@FoodType_Name", model.FoodType_Name)  ,
                                     new MySqlParameter("@Sort", model.Sort)  ,
                                     new MySqlParameter("@State", model.State)  ,
                                     new MySqlParameter("@Createtime", model.Createtime)  ,
-                                    new MySqlParameter("@Updatetime", model.Updatetime)              
+                                    new MySqlParameter("@Updatetime", model.Updatetime)
             };
-            
-            myHelperMySQL.ExecuteNonQuery(strSql.ToString(),parameters);		
-		}
-		
-		/// <summary>
-		/// 更新一条数据(所有字段)
-		/// </summary>
-		public int Update(DBHelper myHelperMySQL ,Fm.Entity.food_type model,string strWhere)
-		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update food_type set ");
-			                        
-            strSql.Append(" FoodType_Code = @FoodType_Code , ");                                    
-            strSql.Append(" FoodType_Name = @FoodType_Name , ");                                    
-            strSql.Append(" Sort = @Sort , ");                                    
-            strSql.Append(" State = @State , ");                                    
-            strSql.Append(" Createtime = @Createtime , ");                                    
-            strSql.Append(" Updatetime = @Updatetime  ");                        			
-			MySqlParameter[] parameters = {
-			            new MySqlParameter("@FoodType_Code", model.FoodType_Code)  ,
+
+            myHelperMySQL.ExecuteNonQuery(strSql.ToString(), parameters);
+        }
+
+        /// <summary>
+        /// 更新一条数据(所有字段)
+        /// </summary>
+        public int Update(DBHelper myHelperMySQL, Fm.Entity.food_type model, string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update food_type set ");
+
+            strSql.Append(" FoodType_Code = @FoodType_Code , ");
+            strSql.Append(" FoodType_Name = @FoodType_Name , ");
+            strSql.Append(" Sort = @Sort , ");
+            strSql.Append(" State = @State , ");
+            strSql.Append(" Createtime = @Createtime , ");
+            strSql.Append(" Updatetime = @Updatetime  ");
+            MySqlParameter[] parameters = {
+                        new MySqlParameter("@FoodType_Code", model.FoodType_Code)  ,
                                     new MySqlParameter("@FoodType_Name", model.FoodType_Name)  ,
                                     new MySqlParameter("@Sort", model.Sort)  ,
                                     new MySqlParameter("@State", model.State)  ,
                                     new MySqlParameter("@Createtime", model.Createtime)  ,
-                                    new MySqlParameter("@Updatetime", model.Updatetime)               
+                                    new MySqlParameter("@Updatetime", model.Updatetime)
             };
-            
+
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
             }
-            
-            int rows=myHelperMySQL.ExecuteNonQuery(strSql.ToString(),parameters);
 
-			return rows;
-		}
-		
-		 /// <summary>
+            int rows = myHelperMySQL.ExecuteNonQuery(strSql.ToString(), parameters);
+
+            return rows;
+        }
+
+        /// <summary>
         /// 更新一条数据，自定义条件和字段
         /// </summary>
         /// <param name="myDbHelperC">DbHelperC实例（数据访问类）.</param>
@@ -101,26 +102,26 @@ namespace Fm.DAL{
                 return 0;
             }
         }
-		
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public int Delete(DBHelper myHelperMySQL ,string strWhere, MySqlParameter[] parameters)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from food_type ");
-			
-			if (strWhere.Trim() != "")
+
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public int Delete(DBHelper myHelperMySQL, string strWhere, MySqlParameter[] parameters)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("delete from food_type ");
+
+            if (strWhere.Trim() != "")
             {
                 strSql.Append(" WHERE " + strWhere);
             }
 
-			int rows=myHelperMySQL.ExecuteNonQuery(strSql.ToString(),parameters);
-			return rows;
-		}
-	
-		/// <summary>
+            int rows = myHelperMySQL.ExecuteNonQuery(strSql.ToString(), parameters);
+            return rows;
+        }
+
+        /// <summary>
         /// 得到一个对象实体(List类型)中指定条件记录数，数据连接类用DbHelperC（非静态）
         /// 表：PFWebSpecialityShop a
         ///     <param name="myHelperMySQL">myHelperMySQL实例（数据访问类）.</param>
@@ -133,8 +134,8 @@ namespace Fm.DAL{
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select ");
             strSql.Append(" count(1) as Num ");
-			strSql.Append("  FROM food_type  ");
-			
+            strSql.Append("  FROM food_type  ");
+
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -154,7 +155,7 @@ namespace Fm.DAL{
             }
             return Num;
         }
-		/// <summary>
+        /// <summary>
         /// 得到一个对象实体(List类型)，数据连接类用myHelperMySQL（非静态）,查询全部数据
         /// 表：MessageBoard 
         /// <param name="myHelperMySQL">myHelperMySQL实例（数据访问类）.</param>
@@ -163,14 +164,14 @@ namespace Fm.DAL{
         /// <param name="filedOrder">排序字段.</param>
         /// <param name="parameters">参数(若条件中未使用参数可为null).</param>
         /// </summary>
-		public List<Fm.Entity.food_type> GetList(DBHelper myHelperMySQL ,int Top, string strWhere, string filedOrder, MySqlParameter[] parameters)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ");
-			strSql.Append(" a.FoodType_Code, a.FoodType_Name, a.Sort, a.State, a.Createtime, a.Updatetime  ");			
-			strSql.Append("  FROM food_type a ");
-			if (strWhere.Trim() != "")
+        public List<Fm.Entity.food_type> GetList(DBHelper myHelperMySQL, int Top, string strWhere, string filedOrder, MySqlParameter[] parameters)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ");
+            strSql.Append(" a.FoodType_Code, a.FoodType_Name, a.Sort, a.State, a.Createtime, a.Updatetime  ");
+            strSql.Append("  FROM food_type a ");
+            if (strWhere.Trim() != "")
             {
                 strSql.Append(" WHERE " + strWhere);
             }
@@ -188,28 +189,28 @@ namespace Fm.DAL{
                 while (dr.Read())
                 {
                     Fm.Entity.food_type model = new Fm.Entity.food_type();
-                    
-                    															model.FoodType_Code= dr["FoodType_Code"].ToString();
-																																								model.FoodType_Name= dr["FoodType_Name"].ToString();
-																																			if(dr["Sort"].ToString()!="")
-					{
-						model.Sort=int.Parse(dr["Sort"].ToString());
-					}
-																																								if(dr["State"].ToString()!="")
-					{
-						model.State=int.Parse(dr["State"].ToString());
-					}
-																																													model.Createtime= dr["Createtime"].ToString();
-																																								model.Updatetime= dr["Updatetime"].ToString();
-																									
+
+                    model.FoodType_Code = dr["FoodType_Code"].ToString();
+                    model.FoodType_Name = dr["FoodType_Name"].ToString();
+                    if (dr["Sort"].ToString() != "")
+                    {
+                        model.Sort = int.Parse(dr["Sort"].ToString());
+                    }
+                    if (dr["State"].ToString() != "")
+                    {
+                        model.State = int.Parse(dr["State"].ToString());
+                    }
+                    model.Createtime = dr["Createtime"].ToString();
+                    model.Updatetime = dr["Updatetime"].ToString();
+
                     myList.Add(model);
                 }
                 dr.Close();
             }
             return myList;
-		}
-		
-		 /// <summary>
+        }
+
+        /// <summary>
         /// 得到一个对象实体(List类型)，数据连接类用myHelperMySQL（非静态）
         /// 表：MessageBoard 
         /// <param name="myHelperMySQL">myHelperMySQL实例（数据访问类）.</param>
@@ -219,15 +220,15 @@ namespace Fm.DAL{
         /// <param name="filedOrder">排序字段.</param>
         /// <param name="parameters">参数(若条件中未使用参数可为null).</param>
         /// </summary>
-		public List<Fm.Entity.food_type> GetList(DBHelper myHelperMySQL ,int Top, string filedSelect, string strWhere, string filedOrder, MySqlParameter[] parameters)
-		{
-			
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select ");
-			//自定义字段
+        public List<Fm.Entity.food_type> GetList(DBHelper myHelperMySQL, int Top, string filedSelect, string strWhere, string filedOrder, MySqlParameter[] parameters)
+        {
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select ");
+            //自定义字段
             strSql.Append(" " + filedSelect);
-			strSql.Append("  FROM food_type a  ");			
-			if (strWhere.Trim() != "")
+            strSql.Append("  FROM food_type a  ");
+            if (strWhere.Trim() != "")
             {
                 strSql.Append(" WHERE " + strWhere);
             }
@@ -242,47 +243,48 @@ namespace Fm.DAL{
             List<Fm.Entity.food_type> myList = new List<Fm.Entity.food_type>();
             using (MySqlDataReader dr = myHelperMySQL.ExecuteReader(strSql.ToString(), parameters))
             {
+                string a = dr.ToString();
                 while (dr.Read())
                 {
                     Fm.Entity.food_type model = new Fm.Entity.food_type();
-                    
-                    	                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.foodtype_code").Count() > 0)
-	                {
-															model.FoodType_Code= dr["FoodType_Code"].ToString();
-																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.foodtype_name").Count() > 0)
-	                {
-															model.FoodType_Name= dr["FoodType_Name"].ToString();
-																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.sort").Count() > 0)
-	                {
-										if(dr["Sort"].ToString()!="")
-					{
-						model.Sort=int.Parse(dr["Sort"].ToString());
-					}
-																														} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.state").Count() > 0)
-	                {
-										if(dr["State"].ToString()!="")
-					{
-						model.State=int.Parse(dr["State"].ToString());
-					}
-																														} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createtime").Count() > 0)
-	                {
-															model.Createtime= dr["Createtime"].ToString();
-																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.updatetime").Count() > 0)
-	                {
-															model.Updatetime= dr["Updatetime"].ToString();
-																									} 
-					
+
+                    if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.foodtype_code").Count() > 0)
+                    {
+                        model.FoodType_Code = dr["FoodType_Code"].ToString();
+                    }
+                    if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.foodtype_name").Count() > 0)
+                    {
+                        model.FoodType_Name = dr["FoodType_Name"].ToString();
+                    }
+                    if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.sort").Count() > 0)
+                    {
+                        if (dr["Sort"].ToString() != "")
+                        {
+                            model.Sort = int.Parse(dr["Sort"].ToString());
+                        }
+                    }
+                    if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.state").Count() > 0)
+                    {
+                        if (dr["State"].ToString() != "")
+                        {
+                            model.State = int.Parse(dr["State"].ToString());
+                        }
+                    }
+                    if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createtime").Count() > 0)
+                    {
+                        model.Createtime = dr["Createtime"].ToString();
+                    }
+                    if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.updatetime").Count() > 0)
+                    {
+                        model.Updatetime = dr["Updatetime"].ToString();
+                    }
+
                     myList.Add(model);
                 }
                 dr.Close();
             }
             return myList;
-		}
+        }
 
-	}
+    }
 }

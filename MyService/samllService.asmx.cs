@@ -28,6 +28,24 @@ namespace MyService
         /// <summary>
         /// 展示菜品类型
         /// </summary>
+        /// <returns>
+        ///{
+        ///    "Rlist": [
+        ///        {
+        ///            "FoodType_Code": "1",        类型编号
+        ///            "FoodType_Name": "肉菜",       类型名
+        ///            "Sort": 1                    排序序号
+        ///        },
+        ///        {
+        ///            "FoodType_Code": "2",
+        ///            "FoodType_Name": "凉菜",
+        ///            "Sort": 1
+        ///        }
+        ///    ],
+        ///    "Result": true,
+        ///    "Msg": ""
+        ///}
+        /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
         public string ShowFoodType()
@@ -38,7 +56,7 @@ namespace MyService
             //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
             //}
             LzHandle myhandle = new LzHandle();
-            string strJson = myhandle.ShowFoodType(1);
+            string strJson = myhandle.ShowFoodType();
             return strJson;
         }
 
@@ -53,28 +71,28 @@ namespace MyService
         ///{
         ///    "mylist": [
         ///        {
-        ///            "FoodID": "1011",
-        ///            "Food_Name": "鱼香肉丝",
-        ///            "Price": 20,
-        ///            "Image_Src": "img.123.com",
+        ///             "Tlist": [
+        ///                 {
+        ///                     "FoodType_Code": "1"    --菜品类型编号
+        ///                 }
+        ///             ],
+        ///            "FoodID": "1011",        --菜品编号
+        ///            "Food_Name": "鱼香肉丝",     --菜名
+        ///            "Price": 20,                 --售价
+        ///            "Image_Src": "img.123.com",  --商品图
         ///            "Food_Summary": "100",   --菜品简介
         ///            "Is_Series": 0,          --是否为系列商品 1是，0否
         ///            "SeriesCode": "",        --系列商品编号
         ///            "Is_Feature": 1,         --是否为热销商品 1是，0否
-        ///            "State": 0,              --状态 0下架，1上架，2删除
-        ///            "Createtime": "0001-01-01 00:00:00",
-        ///            "Updatetime": "0001-01-01 00:00:00"
         ///        }
         ///    ],
-        ///    "Result": true,
-        ///    "Msg": "",
-        ///    "pageCount": 1,
-        ///    "recordCount": 1
+        ///    "Result": true,  --返回状态
+        ///    "Msg": "",       --错误信息
         ///}
         /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string MenuList(string typecode, int pageSize, int pageNo)
+        public string MenuList()
         {
             //string Msg = "";
             //if (!myHeaderUserAuthDy.IsValid(out Msg))
@@ -82,7 +100,7 @@ namespace MyService
             //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
             //}
             LzHandle myhandle = new LzHandle();
-            string strJson = myhandle.ViewMenu(typecode, pageSize,pageNo);
+            string strJson = myhandle.ViewMenu();
             return strJson;
         }
 
@@ -98,11 +116,11 @@ namespace MyService
         ///            "Food_Name": "鱼香肉丝",
         ///            "Price": 20.00,
         ///            "Image_Src": "img.123.com",
-        ///            "Food_Summary": "100",
-        ///            "Is_Series": 0,
-        ///            "SeriesCode": "",
-        ///            "Is_Feature": 1,
-        ///            "State": 0,
+        ///            "Food_Summary": "100",                   菜品简介
+        ///            "Is_Series": 0,                          是否为系列商品（1是0否）
+        ///            "SeriesCode": "",                        系列商品编号
+        ///            "Is_Feature": 1,                         是否为热销商品（1是0否）
+        ///            "State": 0,                              商品状态
         ///            "Createtime": "0001-01-01 00:00:00",
         ///            "Updatetime": "0001-01-01 00:00:00"
         ///        }
@@ -132,18 +150,18 @@ namespace MyService
         ///{
         ///    "Dlist": [
         ///        {
-        ///            "OrderID": "",
-        ///            "Food_Code": "",
-        ///            "State": 0,
+        ///            "OrderID": "",       订单编号
+        ///            "Food_Code": "",     菜品编号
+        ///            "State": 0,          订单状态（0）
         ///            "Createtime": "",
         ///            "Updatetime": ""
         ///        }
         ///    ],
-        ///    "UserID": "2688",
-        ///    "TableCode": "1",
-        ///    "Amount": 100,
-        ///    "Discount": "0.98",
-        ///    "Mymoney": "98"
+        ///    "UserID": "2688",            用户编号
+        ///    "TableCode": "1",            桌子编号    
+        ///    "Amount": 100,               应收款
+        ///    "Discount": "0.98",          折扣
+        ///    "Mymoney": "98"              实收款
         ///}
         /// </param>
         /// <returns>
@@ -168,19 +186,21 @@ namespace MyService
         /// 支付完成，生成结账单，修改订单状态
         /// </summary>
         /// <param name="OrderID"></param>
-        /// <param name="State"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// "Result": true,
+        /// "Msg": ""
+        /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string updateorder(string OrderID, int State)
+        public string updateorder(string OrderID)
         {
-            string Msg = "";
-            if (!myHeaderUserAuthDy.IsValid(out Msg))
-            {
-                return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
-            }
+            //string Msg = "";
+            //if (!myHeaderUserAuthDy.IsValid(out Msg))
+            //{
+            //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
+            //}
             LzHandle myhandle = new LzHandle();
-            string strJson = myhandle.updateorder(OrderID, State);
+            string strJson = myhandle.updateorder(OrderID);
             return strJson;
         }
     }
