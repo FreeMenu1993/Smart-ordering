@@ -138,4 +138,9 @@ namespace Fm.BusinessRules
 
     }
 
+    public class Parstr
+    {
+
+    }
+
 }

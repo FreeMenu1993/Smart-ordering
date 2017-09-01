@@ -11,13 +11,14 @@ namespace MyService
     /// <summary>
     /// samllService (小程序接口)
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "https://www.bambooego.com/Smart/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // 若要允许使用 ASP.NET AJAX 从脚本中调用此 Web 服务，请取消注释以下行。 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class samllService : System.Web.Services.WebService
     {
+
         #region 声明Soap头实例
         //静态验证头
         public Fm.BusinessRules.LifeUserAuthentication myHeaderUserAuth = new Fm.BusinessRules.LifeUserAuthentication();
@@ -48,7 +49,7 @@ namespace MyService
         /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string ShowFoodType()
+        public void ShowFoodType()
         {
             //string Msg = "";
             //if (!myHeaderUserAuthDy.IsValid(out Msg))
@@ -57,7 +58,11 @@ namespace MyService
             //}
             LzHandle myhandle = new LzHandle();
             string strJson = myhandle.ShowFoodType();
-            return strJson;
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/html";
+            Context.Response.Write(strJson);
+            Context.Response.Flush();
+            Context.Response.End();
         }
 
         /// <summary>
@@ -92,7 +97,7 @@ namespace MyService
         /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string MenuList()
+        public void MenuList()
         {
             //string Msg = "";
             //if (!myHeaderUserAuthDy.IsValid(out Msg))
@@ -101,7 +106,11 @@ namespace MyService
             //}
             LzHandle myhandle = new LzHandle();
             string strJson = myhandle.ViewMenu();
-            return strJson;
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/html";
+            Context.Response.Write(strJson);
+            Context.Response.Flush();
+            Context.Response.End();
         }
 
         /// <summary>
@@ -131,16 +140,22 @@ namespace MyService
         /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string FoodDetail(string FoodID)
+        public void FoodDetail(string FoodID)
         {
-            //string Msg = "";
-            //if (!myHeaderUserAuthDy.IsValid(out Msg))
-            //{
-            //    return "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
-            //}
+            string strJson = "";
+            string Msg = "";
+            if (!myHeaderUserAuthDy.IsValid(out Msg))
+            {
+                strJson = "{\"MemberEncryption\":null,\"Result\":false,\"Msg\":\"非法连接.\"}";
+            }
             LzHandle myhandle = new LzHandle();
-            string strJson = myhandle.FoodDetail(FoodID);
-            return strJson;
+            strJson = myhandle.FoodDetail(FoodID);
+            
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/html";
+            Context.Response.Write(strJson);
+            Context.Response.Flush();
+            Context.Response.End();
         }
 
         /// <summary>
@@ -170,7 +185,7 @@ namespace MyService
         /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string CreateOrder(string json)
+        public void CreateOrder(string json)
         {
             //string Msg = "";
             //if (!myHeaderUserAuthDy.IsValid(out Msg))
@@ -179,7 +194,11 @@ namespace MyService
             //}
             LzHandle myhandle = new LzHandle();
             string strJson = myhandle.CreateOrder(json);
-            return strJson;
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/html";
+            Context.Response.Write(strJson);
+            Context.Response.Flush();
+            Context.Response.End();
         }
 
         /// <summary>
@@ -192,7 +211,7 @@ namespace MyService
         /// </returns>
         [WebMethod]
         [SoapHeader("myHeaderUserAuthDy")]
-        public string updateorder(string OrderID)
+        public void updateorder(string OrderID)
         {
             //string Msg = "";
             //if (!myHeaderUserAuthDy.IsValid(out Msg))
@@ -201,7 +220,11 @@ namespace MyService
             //}
             LzHandle myhandle = new LzHandle();
             string strJson = myhandle.updateorder(OrderID);
-            return strJson;
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/html";
+            Context.Response.Write(strJson);
+            Context.Response.Flush();
+            Context.Response.End();
         }
     }
 }

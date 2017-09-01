@@ -35,11 +35,6 @@ namespace Fm.BusinessRules
         public string PassWord { get; set; }
 
         /// <summary>
-        /// 用户手机号
-        /// </summary>
-        public string MobilePhoneNO { get; set; }
-
-        /// <summary>
         /// 初始化用户名密码
         /// </summary>
         /// <param name="iUserId">用户名</param>
@@ -82,38 +77,6 @@ namespace Fm.BusinessRules
             }
         }
 
-        #region 未启用
-
-        /// <summary>
-        /// 区域码
-        /// </summary>
-        public string AreaCode { get; set; }
-        /// <summary>
-        /// 纬度
-        /// </summary>
-        public string Latitude { get; set; }
-        /// <summary>
-        /// 经度
-        /// </summary>
-        public string Longitude { get; set; }
-
-        /// <summary>
-        /// 设备号
-        /// </summary>
-        public string DeviceNo { get; set; }
-        /// <summary>
-        /// 设备类型： android手机，iPhone
-        /// </summary>
-        public string DeviceType { get; set; }
-        /// <summary>
-        /// 系统版本号
-        /// </summary>
-        public string SystemVersion { get; set; }
-        /// <summary>
-        /// 应用版本号
-        /// </summary>
-        public string AppVersion { get; set; }
-
-        #endregion
+ 
     }
 }
