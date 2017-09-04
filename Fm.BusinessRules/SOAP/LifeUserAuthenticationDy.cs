@@ -19,30 +19,30 @@ namespace Fm.BusinessRules
         /// </summary>
         /// <param name="iUserId">用户名</param>
         /// <param name="iPassWord">密码</param>
-        public LifeUserAuthenticationDy(string iUserId, string iPassWord)
+        public LifeUserAuthenticationDy(string iAPIAccount, string iAPISecret)
         {
-            Initial(iUserId, iPassWord);
+            Initial(iAPIAccount, iAPISecret);
         }
 
         /// <summary>
-        /// 用户编号
+        /// Account
         /// </summary>
-        public string UserId { get; set; }
+        public string APIAccount { get; set; }
 
         /// <summary>
-        /// 密码
+        /// Password
         /// </summary>
-        public string PassWord { get; set; }
+        public string APISecret { get; set; }
 
         /// <summary>
         /// 初始化用户名密码
         /// </summary>
         /// <param name="iUserId">用户名</param>
         /// <param name="iPassWord">密码</param>
-        private void Initial(string iUserId, string iPassWord)
+        private void Initial(string iAPIAccount, string iAPISecret)
         {
-            UserId = iUserId;
-            PassWord = iPassWord;
+            APIAccount = iAPIAccount;
+            APISecret = iAPISecret;
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Fm.BusinessRules
         /// <returns>是否合法</returns>
         public bool IsValid(out string iMsg)
         {
-            return IsValid(UserId, PassWord, out iMsg);
+            return IsValid(APIAccount, APISecret, out iMsg);
         }
 
         private bool IsValid(string iUserId, string iPassWord, out string iMsg)
@@ -61,7 +61,7 @@ namespace Fm.BusinessRules
             try
             {
                 //判断用户名密码
-                if ((iUserId == Fm.BLL.Base.SoapConfig.APIUserId && iPassWord == Fm.BLL.Base.SoapConfig.APISecret))
+                if ((iUserId == Fm.BLL.Base.SoapConfig.APIAccount && iPassWord == Fm.BLL.Base.SoapConfig.APISecret))
                 {
                     return true;
                 }

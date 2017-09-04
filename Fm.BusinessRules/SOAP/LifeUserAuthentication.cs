@@ -71,7 +71,7 @@ namespace Fm.BusinessRules
             {
                 //BaseHandle.WriteLog("cdt", "1IsValid", iUserId + " " + iPassWord);
                 //判断用户名密码
-                if ((iUserId == Fm.BLL.Base.SoapConfig.APIUserId && iPassWord == Fm.BLL.Base.SoapConfig.APISecret))
+                if ((iUserId == Fm.BLL.Base.SoapConfig.APIAccount && iPassWord == Fm.BLL.Base.SoapConfig.APISecret))
                 {
                     return true;
                 }

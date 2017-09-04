@@ -20,9 +20,6 @@ namespace MyService
     {
 
         #region 声明Soap头实例
-        //静态验证头
-        public Fm.BusinessRules.LifeUserAuthentication myHeaderUserAuth = new Fm.BusinessRules.LifeUserAuthentication();
-        //动态验证头
         public Fm.BusinessRules.LifeUserAuthenticationDy myHeaderUserAuthDy = new Fm.BusinessRules.LifeUserAuthenticationDy();
         #endregion
 

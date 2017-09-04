@@ -25,3 +25,4 @@ D:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.dll
 D:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.pdb
 D:\Smart-ordering\Fm.Entity\bin\Debug\System.Net.Http.dll
 D:\Smart-ordering\Fm.Entity\bin\Debug\System.Net.Http.xml
+D:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.csprojResolveAssemblyReference.cache
