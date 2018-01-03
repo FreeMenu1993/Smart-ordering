@@ -26,3 +26,9 @@ D:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.pdb
 D:\Smart-ordering\Fm.Entity\bin\Debug\System.Net.Http.dll
 D:\Smart-ordering\Fm.Entity\bin\Debug\System.Net.Http.xml
 D:\Smart-ordering\Fm.Entity\obj\Debug\Fm.Entity.csprojResolveAssemblyReference.cache
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.Entity\obj\Debug\Fm.Entity.dll
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.Entity\obj\Debug\Fm.Entity.pdb
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.Entity\bin\Debug\Fm.Entity.dll
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.Entity\bin\Debug\Fm.Entity.pdb
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.Entity\bin\Debug\System.Net.Http.xml

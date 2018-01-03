@@ -43,19 +43,19 @@
   <ItemGroup>
     <Compile Include="DataResponse\BaseResponse.cs" />
     <Compile Include="DataResponse\Response.cs" />
-    <Compile Include="Entity\act_filled.cs" />
-    <Compile Include="Entity\act_redmoney.cs" />
-    <Compile Include="Entity\act_ticket.cs" />
-    <Compile Include="Entity\act_ticket_used.cs" />
-    <Compile Include="Entity\food_menu.cs" />
-    <Compile Include="Entity\food_rel_type.cs" />
-    <Compile Include="Entity\food_series.cs" />
-    <Compile Include="Entity\food_type.cs" />
-    <Compile Include="Entity\order_detail.cs" />
-    <Compile Include="Entity\order_record.cs" />
-    <Compile Include="Entity\tableinfo.cs" />
-    <Compile Include="Entity\tableuse_record.cs" />
+    <Compile Include="Entity\log.cs" />
+    <Compile Include="Entity\orderlist.cs" />
+    <Compile Include="Entity\orderrecord.cs" />
+    <Compile Include="Entity\product_attr.cs" />
+    <Compile Include="Entity\product_img.cs" />
+    <Compile Include="Entity\product_info.cs" />
+    <Compile Include="Entity\product_type.cs" />
+    <Compile Include="Entity\product_type_and_attr.cs" />
+    <Compile Include="Entity\shop_cart.cs" />
+    <Compile Include="Entity\useraddress.cs" />
     <Compile Include="Entity\userinfo.cs" />
+    <Compile Include="Entity\wx_requestdata.cs" />
+    <Compile Include="Entity\wx_userinfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

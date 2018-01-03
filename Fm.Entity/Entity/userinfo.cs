@@ -15,66 +15,48 @@ namespace Fm.Entity{
 	{   
       			private string _userid;
 		/// <summary>
-		/// 用户编号
+		/// 用户ID
         /// </summary>
-        public string UserID
+        public string UserId
         {
             get{ return _userid; }
             set{ _userid = value; }
         }        
-				private string _nickname;
+				private string _openid;
 		/// <summary>
-		/// 用户昵称
+		/// 微信用户的唯一标识
         /// </summary>
-        public string NickName
+        public string Openid
         {
-            get{ return _nickname; }
-            set{ _nickname = value; }
+            get{ return _openid; }
+            set{ _openid = value; }
         }        
-				private string _avatarurl;
+				private string _headimgurl;
 		/// <summary>
-		/// 用户头像地址
+		/// 用户头像
         /// </summary>
-        public string AvatarUrl
+        public string headimgurl
         {
-            get{ return _avatarurl; }
-            set{ _avatarurl = value; }
+            get{ return _headimgurl; }
+            set{ _headimgurl = value; }
         }        
-				private int _sex;
+				private string _username;
 		/// <summary>
-		/// 用户性别
+		/// 用户名
         /// </summary>
-        public int Sex
+        public string UserName
         {
-            get{ return _sex; }
-            set{ _sex = value; }
+            get{ return _username; }
+            set{ _username = value; }
         }        
-				private string _country;
+				private string _pwd;
 		/// <summary>
-		/// 国家
+		/// 用户密码
         /// </summary>
-        public string Country
+        public string Pwd
         {
-            get{ return _country; }
-            set{ _country = value; }
-        }        
-				private string _province;
-		/// <summary>
-		/// 省份
-        /// </summary>
-        public string Province
-        {
-            get{ return _province; }
-            set{ _province = value; }
-        }        
-				private string _city;
-		/// <summary>
-		/// 城市
-        /// </summary>
-        public string City
-        {
-            get{ return _city; }
-            set{ _city = value; }
+            get{ return _pwd; }
+            set{ _pwd = value; }
         }        
 				private string _mobile;
 		/// <summary>
@@ -85,41 +67,50 @@ namespace Fm.Entity{
             get{ return _mobile; }
             set{ _mobile = value; }
         }        
-				private int _rank;
+				private int _groupclass;
 		/// <summary>
-		/// 会员等级（0未开通）
+		/// 用户组：6普通用户，9管理员
         /// </summary>
-        public int Rank
+        public int GroupClass
         {
-            get{ return _rank; }
-            set{ _rank = value; }
+            get{ return _groupclass; }
+            set{ _groupclass = value; }
         }        
-				private int _state;
+				private string _operator;
 		/// <summary>
-		/// 用户状态（0已删除，1激活）
+		/// 操作人
         /// </summary>
-        public int State
+        public string Operator
         {
-            get{ return _state; }
-            set{ _state = value; }
+            get{ return _operator; }
+            set{ _operator = value; }
         }        
-				private string _createtime;
+				private int _stateid;
+		/// <summary>
+		/// 用户状态（默认为1）
+        /// </summary>
+        public int StateId
+        {
+            get{ return _stateid; }
+            set{ _stateid = value; }
+        }        
+				private string _createdate;
 		/// <summary>
 		/// 创建时间
         /// </summary>
-        public string Createtime
+        public string CreateDate
         {
-            get{ return _createtime; }
-            set{ _createtime = value; }
+            get{ return _createdate; }
+            set{ _createdate = value; }
         }        
-				private string _refreshtime;
+				private string _refreshdate;
 		/// <summary>
 		/// 更新时间
         /// </summary>
-        public string Refreshtime
+        public string RefreshDate
         {
-            get{ return _refreshtime; }
-            set{ _refreshtime = value; }
+            get{ return _refreshdate; }
+            set{ _refreshdate = value; }
         }        
 		   
 	}

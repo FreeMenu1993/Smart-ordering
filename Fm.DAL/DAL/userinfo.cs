@@ -2,6 +2,7 @@
 *│版权所有：Dream1993
 *│创建人：Lee        
 */  
+using System;
 using System.Text;
 using System.Data;
 using System.Linq;
@@ -22,24 +23,23 @@ namespace Fm.DAL{
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into userinfo(");			
-            strSql.Append("UserID,NickName,AvatarUrl,Sex,Country,Province,City,Mobile,Rank,State,Createtime,Refreshtime");
+            strSql.Append("UserId,Openid,headimgurl,UserName,Pwd,Mobile,GroupClass,Operator,StateId,CreateDate,RefreshDate");
 			strSql.Append(") values (");
-            strSql.Append("@UserID,@NickName,@AvatarUrl,@Sex,@Country,@Province,@City,@Mobile,@Rank,@State,@Createtime,@Refreshtime");            
+            strSql.Append("@UserId,@Openid,@headimgurl,@UserName,@Pwd,@Mobile,@GroupClass,@Operator,@StateId,@CreateDate,@RefreshDate");            
             strSql.Append(") ");            
             	
 			MySqlParameter[] parameters = {
-			            new MySqlParameter("@UserID", model.UserID)  ,
-                                    new MySqlParameter("@NickName", model.NickName)  ,
-                                    new MySqlParameter("@AvatarUrl", model.AvatarUrl)  ,
-                                    new MySqlParameter("@Sex", model.Sex)  ,
-                                    new MySqlParameter("@Country", model.Country)  ,
-                                    new MySqlParameter("@Province", model.Province)  ,
-                                    new MySqlParameter("@City", model.City)  ,
+			            new MySqlParameter("@UserId", model.UserId)  ,
+                                    new MySqlParameter("@Openid", model.Openid)  ,
+                                    new MySqlParameter("@headimgurl", model.headimgurl)  ,
+                                    new MySqlParameter("@UserName", model.UserName)  ,
+                                    new MySqlParameter("@Pwd", model.Pwd)  ,
                                     new MySqlParameter("@Mobile", model.Mobile)  ,
-                                    new MySqlParameter("@Rank", model.Rank)  ,
-                                    new MySqlParameter("@State", model.State)  ,
-                                    new MySqlParameter("@Createtime", model.Createtime)  ,
-                                    new MySqlParameter("@Refreshtime", model.Refreshtime)              
+                                    new MySqlParameter("@GroupClass", model.GroupClass)  ,
+                                    new MySqlParameter("@Operator", model.Operator)  ,
+                                    new MySqlParameter("@StateId", model.StateId)  ,
+                                    new MySqlParameter("@CreateDate", model.CreateDate)  ,
+                                    new MySqlParameter("@RefreshDate", model.RefreshDate)              
             };
             
             myHelperMySQL.ExecuteNonQuery(strSql.ToString(),parameters);		
@@ -53,31 +53,29 @@ namespace Fm.DAL{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update userinfo set ");
 			                        
-            strSql.Append(" UserID = @UserID , ");                                    
-            strSql.Append(" NickName = @NickName , ");                                    
-            strSql.Append(" AvatarUrl = @AvatarUrl , ");                                    
-            strSql.Append(" Sex = @Sex , ");                                    
-            strSql.Append(" Country = @Country , ");                                    
-            strSql.Append(" Province = @Province , ");                                    
-            strSql.Append(" City = @City , ");                                    
+            strSql.Append(" UserId = @UserId , ");                                    
+            strSql.Append(" Openid = @Openid , ");                                    
+            strSql.Append(" headimgurl = @headimgurl , ");                                    
+            strSql.Append(" UserName = @UserName , ");                                    
+            strSql.Append(" Pwd = @Pwd , ");                                    
             strSql.Append(" Mobile = @Mobile , ");                                    
-            strSql.Append(" Rank = @Rank , ");                                    
-            strSql.Append(" State = @State , ");                                    
-            strSql.Append(" Createtime = @Createtime , ");                                    
-            strSql.Append(" Refreshtime = @Refreshtime  ");                        			
+            strSql.Append(" GroupClass = @GroupClass , ");                                    
+            strSql.Append(" Operator = @Operator , ");                                    
+            strSql.Append(" StateId = @StateId , ");                                    
+            strSql.Append(" CreateDate = @CreateDate , ");                                    
+            strSql.Append(" RefreshDate = @RefreshDate  ");                        			
 			MySqlParameter[] parameters = {
-			            new MySqlParameter("@UserID", model.UserID)  ,
-                                    new MySqlParameter("@NickName", model.NickName)  ,
-                                    new MySqlParameter("@AvatarUrl", model.AvatarUrl)  ,
-                                    new MySqlParameter("@Sex", model.Sex)  ,
-                                    new MySqlParameter("@Country", model.Country)  ,
-                                    new MySqlParameter("@Province", model.Province)  ,
-                                    new MySqlParameter("@City", model.City)  ,
+			            new MySqlParameter("@UserId", model.UserId)  ,
+                                    new MySqlParameter("@Openid", model.Openid)  ,
+                                    new MySqlParameter("@headimgurl", model.headimgurl)  ,
+                                    new MySqlParameter("@UserName", model.UserName)  ,
+                                    new MySqlParameter("@Pwd", model.Pwd)  ,
                                     new MySqlParameter("@Mobile", model.Mobile)  ,
-                                    new MySqlParameter("@Rank", model.Rank)  ,
-                                    new MySqlParameter("@State", model.State)  ,
-                                    new MySqlParameter("@Createtime", model.Createtime)  ,
-                                    new MySqlParameter("@Refreshtime", model.Refreshtime)               
+                                    new MySqlParameter("@GroupClass", model.GroupClass)  ,
+                                    new MySqlParameter("@Operator", model.Operator)  ,
+                                    new MySqlParameter("@StateId", model.StateId)  ,
+                                    new MySqlParameter("@CreateDate", model.CreateDate)  ,
+                                    new MySqlParameter("@RefreshDate", model.RefreshDate)               
             };
             
             if (strWhere.Trim() != "")
@@ -186,7 +184,7 @@ namespace Fm.DAL{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select ");
-			strSql.Append(" a.UserID, a.NickName, a.AvatarUrl, a.Sex, a.Country, a.Province, a.City, a.Mobile, a.Rank, a.State, a.Createtime, a.Refreshtime  ");			
+			strSql.Append(" a.UserId, a.Openid, a.headimgurl, a.UserName, a.Pwd, a.Mobile, a.GroupClass, a.Operator, a.StateId, a.CreateDate, a.RefreshDate  ");			
 			strSql.Append("  FROM userinfo a ");
 			if (strWhere.Trim() != "")
             {
@@ -207,27 +205,23 @@ namespace Fm.DAL{
                 {
                     Fm.Entity.userinfo model = new Fm.Entity.userinfo();
                     
-                    															model.UserID= dr["UserID"].ToString();
-																																								model.NickName= dr["NickName"].ToString();
-																																								model.AvatarUrl= dr["AvatarUrl"].ToString();
-																																			if(dr["Sex"].ToString()!="")
-					{
-						model.Sex=int.Parse(dr["Sex"].ToString());
-					}
-																																													model.Country= dr["Country"].ToString();
-																																								model.Province= dr["Province"].ToString();
-																																								model.City= dr["City"].ToString();
+                    															model.UserId= dr["UserId"].ToString();
+																																								model.Openid= dr["Openid"].ToString();
+																																								model.headimgurl= dr["headimgurl"].ToString();
+																																								model.UserName= dr["UserName"].ToString();
+																																								model.Pwd= dr["Pwd"].ToString();
 																																								model.Mobile= dr["Mobile"].ToString();
-																																			if(dr["Rank"].ToString()!="")
+																																			if(dr["GroupClass"].ToString()!="")
 					{
-						model.Rank=int.Parse(dr["Rank"].ToString());
+						model.GroupClass=int.Parse(dr["GroupClass"].ToString());
 					}
-																																								if(dr["State"].ToString()!="")
+																																													model.Operator= dr["Operator"].ToString();
+																																			if(dr["StateId"].ToString()!="")
 					{
-						model.State=int.Parse(dr["State"].ToString());
+						model.StateId=int.Parse(dr["StateId"].ToString());
 					}
-																																													model.Createtime= dr["Createtime"].ToString();
-																																								model.Refreshtime= dr["Refreshtime"].ToString();
+																																													model.CreateDate= dr["CreateDate"].ToString();
+																																								model.RefreshDate= dr["RefreshDate"].ToString();
 																									
                     myList.Add(model);
                 }
@@ -275,60 +269,53 @@ namespace Fm.DAL{
                     
                     	                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.userid").Count() > 0)
 	                {
-															model.UserID= dr["UserID"].ToString();
+															model.UserId= dr["UserId"].ToString();
 																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.nickname").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.openid").Count() > 0)
 	                {
-															model.NickName= dr["NickName"].ToString();
+															model.Openid= dr["Openid"].ToString();
 																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.avatarurl").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.headimgurl").Count() > 0)
 	                {
-															model.AvatarUrl= dr["AvatarUrl"].ToString();
+															model.headimgurl= dr["headimgurl"].ToString();
 																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.sex").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.username").Count() > 0)
 	                {
-										if(dr["Sex"].ToString()!="")
-					{
-						model.Sex=int.Parse(dr["Sex"].ToString());
-					}
-																														} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.country").Count() > 0)
-	                {
-															model.Country= dr["Country"].ToString();
+															model.UserName= dr["UserName"].ToString();
 																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.province").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.pwd").Count() > 0)
 	                {
-															model.Province= dr["Province"].ToString();
-																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.city").Count() > 0)
-	                {
-															model.City= dr["City"].ToString();
+															model.Pwd= dr["Pwd"].ToString();
 																									} 
 						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.mobile").Count() > 0)
 	                {
 															model.Mobile= dr["Mobile"].ToString();
 																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.rank").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.groupclass").Count() > 0)
 	                {
-										if(dr["Rank"].ToString()!="")
+										if(dr["GroupClass"].ToString()!="")
 					{
-						model.Rank=int.Parse(dr["Rank"].ToString());
+						model.GroupClass=int.Parse(dr["GroupClass"].ToString());
 					}
 																														} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.state").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.operator").Count() > 0)
 	                {
-										if(dr["State"].ToString()!="")
-					{
-						model.State=int.Parse(dr["State"].ToString());
-					}
-																														} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createtime").Count() > 0)
-	                {
-															model.Createtime= dr["Createtime"].ToString();
+															model.Operator= dr["Operator"].ToString();
 																									} 
-						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.refreshtime").Count() > 0)
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.stateid").Count() > 0)
 	                {
-															model.Refreshtime= dr["Refreshtime"].ToString();
+										if(dr["StateId"].ToString()!="")
+					{
+						model.StateId=int.Parse(dr["StateId"].ToString());
+					}
+																														} 
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.createdate").Count() > 0)
+	                {
+															model.CreateDate= dr["CreateDate"].ToString();
+																									} 
+						                if (filedSelect.ToLower().Split(',').Where(x => x.Trim() == "a.refreshdate").Count() > 0)
+	                {
+															model.RefreshDate= dr["RefreshDate"].ToString();
 																									} 
 					
                     myList.Add(model);
