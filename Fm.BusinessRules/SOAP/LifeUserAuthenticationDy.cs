@@ -14,6 +14,7 @@ namespace Fm.BusinessRules
         public LifeUserAuthenticationDy()
         {
         }
+
         /// <summary>
         /// 构造函数，初始化用户名密码
         /// </summary>

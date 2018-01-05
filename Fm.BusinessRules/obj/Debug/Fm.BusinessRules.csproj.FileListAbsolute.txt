@@ -161,6 +161,7 @@ C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\System.Net.Http.d
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.DAL.dll
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.WebCommon.dll
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\MySql.Data.dll
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Newtonsoft.Json.dll
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.BLL.pdb
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.BLL.dll.config
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.Core.pdb
@@ -170,8 +171,7 @@ C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.DAL.pdb
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.DAL.dll.config
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.WebCommon.pdb
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Fm.WebCommon.dll.config
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Newtonsoft.Json.xml
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\obj\Debug\Fm.BusinessRules.csprojResolveAssemblyReference.cache
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\obj\Debug\Fm.BusinessRules.dll
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\obj\Debug\Fm.BusinessRules.pdb
-C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Newtonsoft.Json.dll
-C:\Users\v-zhli3\Desktop\SevenApple\Fm.BusinessRules\bin\Debug\Newtonsoft.Json.xml

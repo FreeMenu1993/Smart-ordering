@@ -150,9 +150,6 @@ D:\Smart-ordering\Fm.BLL\obj\Debug\Fm.BLL.dll
 D:\Smart-ordering\Fm.BLL\obj\Debug\Fm.BLL.pdb
 D:\Smart-ordering\Fm.BLL\bin\Debug\System.Net.Http.dll
 D:\Smart-ordering\Fm.BLL\bin\Debug\System.Net.Http.xml
-C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\obj\Debug\Fm.BLL.csprojResolveAssemblyReference.cache
-C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\obj\Debug\Fm.BLL.dll
-C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\obj\Debug\Fm.BLL.pdb
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\Fm.BLL.dll.config
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\Fm.BLL.dll
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\Fm.BLL.pdb
@@ -179,3 +176,6 @@ C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\ServiceStack.Interfaces.xml
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\ServiceStack.Redis.xml
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\ServiceStack.Text.xml
 C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\bin\Debug\System.Net.Http.xml
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\obj\Debug\Fm.BLL.csprojResolveAssemblyReference.cache
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\obj\Debug\Fm.BLL.dll
+C:\Users\v-zhli3\Desktop\SevenApple\Fm.BLL\obj\Debug\Fm.BLL.pdb
